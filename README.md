@@ -1,7 +1,7 @@
 webpictureoptimizer
 ===================
 
-small shell-script to lossless compression of uploaded pictures in CMS
+small shell-script for lossless compression of uploaded pictures in CMS
 
 First supported CMS will be Wordpress.
 

@@ -8,10 +8,10 @@ cd /var/www/
 
 find . -iname \*.jp*g -type f | grep uploads | grep -v sysext| xargs -0 jpegoptim --strip-com --strip-exif --strip-icc
 
-exit 0;
+
 
 # Running optipng with highest optimization level on all found png
 find . -iname \*.png -type f | grep uploads | grep -v sysext| xargs -0 optipng -o7
 
-echo "All Done, see your bandwithmeter dropping"
+echo "All Done, see your bandwithmeter dropping. "
 exit 0;
