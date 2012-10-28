@@ -5,8 +5,9 @@ cd /var/www/
 # find all jpegs in upload folder and optimize them w/o stripping metadata
 # output of find is filtered to paths with containing an uploads folder and NOT 
 # containing a Typo3 sysext folder.
+#symlinks are followed
 
-find . -iname \*.jp*g -type f | grep uploads | grep -v sysext| xargs -0 jpegoptim --strip-com --strip-exif --strip-icc
+find . -L -iname \*.jp*g -type f | grep uploads | grep -v sysext| xargs -0 jpegoptim --strip-com --strip-exif --strip-icc
 
 
 
