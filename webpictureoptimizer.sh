@@ -12,7 +12,7 @@ cd /var/www/
 
 # Running optipng with highest optimization level on all found png
 find . -iname \*.png -type f | grep uploads | xargs -0 optipng -o7
-
+  
 #advpng to compress png with 7z algorithm
 find . -iname \*.png -type f | grep uploads | xargs -0 advpng -2
 #tbd
