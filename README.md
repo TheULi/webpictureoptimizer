@@ -1,5 +1,7 @@
 webpictureoptimizer
 ===================
+Important Notice: The script doesn't work yet! 
+
 
 small shell-script for lossless compression of uploaded pictures in CMS
 
