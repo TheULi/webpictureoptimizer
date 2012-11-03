@@ -7,14 +7,14 @@ cd /var/www/
 #symlinks are followed
 
  
- find . -iname \*.jp*g  | grep -a -Z uploads | xargs -0jpegoptim -o -t -v --strip-com --strip-exif --strip-icc
+find -iname \*.jp*g  | grep -a -Z uploads | xargs jpegoptim -o -t -v --strip-com --strip-exif --strip-icc
 
 
 # Running optipng with highest optimization level on all found png
-find . -iname \*.png -type f | grep uploads | xargs -0 optipng -o7
+find . -iname \*.png -type f | grep uploads | xargs optipng -o2
   
 #advpng to compress png with 7z algorithm
-find . -iname \*.png -type f | grep uploads | xargs -0 advpng -2
+find . -iname \*.png -type f | grep uploads | xargs advpng -2
 #tbd
 echo "All Done, see your bandwithmeter dropping. "
 exit 0;
