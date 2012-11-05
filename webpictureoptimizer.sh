@@ -1,10 +1,13 @@
 #!/usr/bin/env sh
 # 
-# first some system information ist gathered, on a quadcore, 3 threads will be in parallel use- 
+# first some system information ist gathered, on a quadcore, 3 threads will be in parallel use 
 CPUCOUNT=`grep -c processor /proc/cpuinfo`
-THREADS=$(($CPUCOUNT-1))
-echo "$CPUCOUNT Cores found, using $THREADS threads parallel"
+if [ $CPUCOUNT -gt 1 ] 
+then    THREADS=$(($CPUCOUNT-1))
+else    THREADS=1
+fi  
 
+echo "$CPUCOUNT Cores found, using $THREADS threads parallel"
 
 # find all jpegs in upload folder and optimize them w/o stripping copyright-metadata
 # output of find is filtered to paths with containing an uploads folder.
