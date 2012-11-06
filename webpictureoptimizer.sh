@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
-# 
+#
+# check for jpegoptim, png and pngout. Aborting when not installed.
+command -v jpegoptim >/dev/null 2>&1 || { echo >&2 "I require jpegoptim but it's not installed.  Aborting."; exit 1; }
+command -v optipng >/dev/null 2>&1 || { echo >&2 "I require optipng but it's not installed.  Aborting."; exit 1; }
+command -v pngout >/dev/null 2>&1 || { echo >&2 "I require pngout but it's not installed.  Aborting."; exit 1; }
+
 # first some system information ist gathered, on a quadcore, 3 threads will be in parallel use 
 CPUCOUNT=`grep -c processor /proc/cpuinfo`
 if [ $CPUCOUNT -gt 1 ] 
