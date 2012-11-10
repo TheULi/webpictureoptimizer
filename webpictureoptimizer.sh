@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 # check for jpegoptim, png and pngout. Aborting when not installed.
 command -v jpegoptim >/dev/null 2>&1 || { echo >&2 "I require jpegoptim but it's not installed.  Aborting."; exit 1; }
