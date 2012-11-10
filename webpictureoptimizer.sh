@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # declare some variables
-USE_JPEGOPTIM=false;
-USE_OPTIPNG=false;
+USE_JPEGOPTIM=true;
+USE_OPTIPNG=true;
 USE_PNGOUT=true;
 
 # check for jpegoptim, png and pngout. Aborting when not installed.
