@@ -27,6 +27,9 @@ if [ $USE_JPEGOPTIM = "true" ]
 then find -L -iname \*.jp*g | grep -a -Z uploads | xargs -n 1 -P $THREADS jpegoptim -o -t -v --strip-com --strip-exif --strip-icc
 fi
 
+# find all png and store in a file
+find . -iname \*.png -type f | grep uploads | xargs -n 1 cat >/tmp/found.png
+
 # Running optipng with highest optimization level on all found png
 if [ $USE_OPTIPNG = "true" ]
 then find . -iname \*.png -type f | grep uploads | xargs -n 1 -P $THREADS optipng -o2
