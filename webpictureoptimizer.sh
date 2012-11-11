@@ -28,20 +28,26 @@ then find -L -iname \*.jp*g | grep -a -Z uploads | xargs -n 1 -P $THREADS jpegop
 fi
 
 # find all png and store in a file
-find . -iname \*.png -type f | grep uploads | xargs -n 1 cat >/tmp/found.png
+find . -iname \*.png -type f | grep uploads | xargs -n 1 cat >/tmp/found_png.tmp
+
+
 
 # Running optipng with highest optimization level on all found png
 if [ $USE_OPTIPNG = "true" ]
-then find . -iname \*.png -type f | grep uploads | xargs -n 1 -P $THREADS optipng -o2
+then cat < /tmp/found_png.tmp | xargs -n 1 -P $THREADS optipng -o2
 fi
 
 #pngout to compress png further after optimization
 # pngout can be found at: http://www.jonof.id.au/kenutils
 # to work properly, either copy the script to /usr/bin oder set a symlink
 if [ $USE_PNGOUT = "true" ]
-then find . -iname \*.png -type f | grep uploads | xargs -n 1 -P $THREADS pngout
+then cat < /tmp/found_png.tmp | xargs -n 1 -P $THREADS pngout
 fi
 
-#tbd
+#
+#delete all temporary files after sucessful run
+
+rm /tmp/found_png.tmp
+
 echo "All Done, see your bandwithmeter dropping. "
 exit 0;
