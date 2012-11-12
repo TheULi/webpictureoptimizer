@@ -32,7 +32,7 @@ find . -iname \*.png -type f | grep uploads | xargs -n 1 cat >/tmp/found_png.tmp
 
 
 
-# Running optipng with highest optimization level on all found png
+# Running optipng on all found png
 if [ $USE_OPTIPNG = "true" ]
 then cat < /tmp/found_png.tmp | xargs -n 1 -P $THREADS optipng -o2
 fi
